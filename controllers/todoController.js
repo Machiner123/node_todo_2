@@ -1,4 +1,15 @@
+var mongoose = require('mongoose')
 var bodyParser = require('body-parser')
+
+// connect to db
+mongoose.connect('mongodb://test:test@ds131826.mlab.com:31826/todo')
+
+// create scheme
+var todoSchema = new mongoose.Schema({
+  item: String
+})
+
+var Todo = mongoose.model('Todo', todoSchema)
 
 var data =[{item: 'get milk'}, {item: 'get catfood'}, {item: 'shine shoes'}]
 
